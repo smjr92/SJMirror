@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SJMirror.App", "src\SJMirror.App\SJMirror.App.csproj", "{5F9F1170-EE4A-4B70-9908-80E4A0546161}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SJMirror.Tests", "tests\SJMirror.Tests\SJMirror.Tests.csproj", "{89915E2E-9782-40FA-A03D-6C4D2371C99D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F9F1170-EE4A-4B70-9908-80E4A0546161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9F1170-EE4A-4B70-9908-80E4A0546161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9F1170-EE4A-4B70-9908-80E4A0546161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9F1170-EE4A-4B70-9908-80E4A0546161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89915E2E-9782-40FA-A03D-6C4D2371C99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89915E2E-9782-40FA-A03D-6C4D2371C99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89915E2E-9782-40FA-A03D-6C4D2371C99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89915E2E-9782-40FA-A03D-6C4D2371C99D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

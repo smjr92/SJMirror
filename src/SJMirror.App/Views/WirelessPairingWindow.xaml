@@ -1,0 +1,62 @@
+<Window x:Class="SJMirror.App.Views.WirelessPairingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:SJMirror.App.ViewModels"
+        Title="Connect wirelessly"
+        Width="460"
+        Height="650"
+        MinWidth="420"
+        MinHeight="580"
+        WindowStartupLocation="CenterOwner"
+        Loaded="WirelessPairingWindow_Loaded"
+        Closed="WirelessPairingWindow_Closed">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <viewModels:PngBytesToImageSourceConverter x:Key="PngConverter" />
+    </Window.Resources>
+    <Grid Margin="28">
+        <StackPanel Visibility="{Binding UseQrCode, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Text="Connect wirelessly" />
+            <TextBlock Margin="0,8,0,0" FontSize="16" Text="Pair your Android device" />
+            <Border Width="260" Height="260" Margin="0,22,0,0"
+                    HorizontalAlignment="Center" Background="White" Padding="10">
+                <Image Source="{Binding QrCodePng, Converter={StaticResource PngConverter}}"
+                       Stretch="Uniform" />
+            </Border>
+            <TextBlock Margin="0,20,0,0" FontWeight="SemiBold" Text="On your Android device:" />
+            <TextBlock Margin="0,8,0,0" TextWrapping="Wrap"
+                       Text="1. Open Developer Options&#x0a;2. Enable Wireless debugging&#x0a;3. Select 'Pair device with QR code'&#x0a;4. Scan this QR code" />
+            <TextBlock Margin="0,18,0,0" HorizontalAlignment="Center"
+                       Foreground="#667085" Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+            <Button Margin="0,16,0,0" Height="36" Command="{Binding UsePairingCodeCommand}"
+                    Content="Use pairing code instead" />
+            <StackPanel Margin="0,8,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="130" Height="34" Command="{Binding GenerateQrCommand}"
+                        Content="Generate new QR" />
+                <Button Width="90" Height="34" Margin="8,0,0,0" Command="{Binding CancelCommand}"
+                        Content="Cancel" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Visibility="{Binding UsePairingCode, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Text="Pair using code" />
+            <TextBlock Margin="0,18,0,5" Text="IP address" />
+            <TextBox Height="34" VerticalContentAlignment="Center"
+                     Text="{Binding IpAddress, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="0,14,0,5" Text="Pairing port" />
+            <TextBox Height="34" VerticalContentAlignment="Center"
+                     Text="{Binding PairingPort, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="0,14,0,5" Text="Pairing code" />
+            <PasswordBox x:Name="PairingCodeBox" Height="34"
+                         PasswordChanged="PairingCodeBox_PasswordChanged" />
+            <TextBlock Margin="0,18,0,0" Foreground="#667085"
+                       Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+            <Button Margin="0,20,0,0" Height="38" Click="PairWithCode_Click"
+                    Content="Pair" />
+            <Button Margin="0,8,0,0" Height="36" Command="{Binding UseQrCodeCommand}"
+                    Content="Use QR code" />
+            <Button Margin="0,8,0,0" Height="36" Command="{Binding CancelCommand}"
+                    Content="Cancel" />
+        </StackPanel>
+    </Grid>
+</Window>

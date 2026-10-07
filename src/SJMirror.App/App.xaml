@@ -1,0 +1,11 @@
+<Application x:Class="SJMirror.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="DeviceConnectedBrush" Color="#3FA66A" />
+        <SolidColorBrush x:Key="DeviceUnauthorizedBrush" Color="#D6A936" />
+        <SolidColorBrush x:Key="DeviceOfflineBrush" Color="#D05B61" />
+        <SolidColorBrush x:Key="DeviceUnknownBrush" Color="#77808C" />
+    </Application.Resources>
+</Application>
